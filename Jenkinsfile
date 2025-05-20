@@ -21,6 +21,8 @@ pipeline {
     stage('Start EC2 Instances') {
       steps {
         sh '''
+          echo "Running start-ec2-needed.sh with parameters:"
+          #echo "TAG_KEY=${TAG_KEY}, TAG_VALUE=${TAG_VALUE}, REGION=${AWS_REGION}"
           chmod +x  ./scripts/start-ec2-needed.sh
           ./scripts/start-ec2-needed.sh "${TAG_KEY}" "${TAG_VALUE}" "${AWS_REGION}"
         '''
