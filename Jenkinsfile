@@ -17,6 +17,12 @@ pipeline {
         checkout scm
       }
     }
+     
+    stage('Test AWS CLI') {
+      steps {
+        sh 'aws sts get-caller-identity'
+      }
+    }
 
     stage('Start EC2 Instances') {
       steps {
