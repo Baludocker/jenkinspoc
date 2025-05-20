@@ -1,9 +1,13 @@
 #!/bin/bash
 set -e
 
-TAG_KEY="${TAG_KEY:-project}"
-TAG_VALUE="${TAG_VALUE:-analytics}"
-REGION="${AWS_REGION:-ap-south-1}"
+#TAG_KEY="${TAG_KEY:-project}"
+#TAG_VALUE="${TAG_VALUE:-analytics}"
+#REGION="${AWS_REGION:-ap-south-1}"
+
+TAG_KEY="${1:-${TAG_KEY:-project}}"
+TAG_VALUE="${2:-${TAG_VALUE:-analytics}}"
+REGION="${3:-${AWS_REGION:-ap-south-1}}"
 
 echo "Looking for stopped EC2 instances with tag: $TAG_KEY=$TAG_VALUE in region: $REGION"
 
